@@ -157,9 +157,31 @@ static int pwm_sf32lb_init(const struct device *dev)
 	return ret;
 }
 
+static int pwm_sf32lb_enable_capture(const struct device *dev, uint32_t channel){
+	return 0;
+}
+
+static int pwm_sf32lb_disable_capture(const struct device *dev, uint32_t channel)
+{
+	return 0;
+}
+
+static int pwm_sf32lb_configure_capture(const struct device *dev,
+				       uint32_t channel, pwm_flags_t flags,
+				       pwm_capture_callback_handler_t cb,
+				       void *user_data){
+	
+	return 0;
+}
+
 static DEVICE_API(pwm, pwm_sf32lb_driver_api) = {
 	.set_cycles = pwm_sf32lb_set_cycles,
 	.get_cycles_per_sec = pwm_sf32lb_get_cycles_per_sec,
+#ifdef CONFIG_PWM_CAPTURE
+	.configure_capture = pwm_sf32lb_configure_capture,
+	.enable_capture = pwm_sf32lb_enable_capture,
+	.disable_capture = pwm_sf32lb_disable_capture,
+#endif
 };
 
 #define PWM_SF32LB_DEFINE(n)                                                                       \

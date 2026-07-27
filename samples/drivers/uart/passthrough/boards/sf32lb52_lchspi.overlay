@@ -9,11 +9,11 @@
     
 	usart2_default: usart2_default {
 		group1 {
-			pinmux = <PA03_USART2_TXD>;
+			pinmux = <PA10_USART2_TXD>;
 		};
 
 		group2 {
-			pinmux = <PA04_USART2_RXD>;
+			pinmux = <PA11_USART2_RXD>;
 			input-enable;
 			bias-pull-up;
 		};
